@@ -1,0 +1,392 @@
+/* Root Variables */
+:root {
+    --primary-color: #000000;
+    --accent-color: #ffffff;
+    --text-color: #ffffff;
+    --gradient: linear-gradient(135deg, #333333 0%, #000000 100%);
+    --hover-gradient: linear-gradient(135deg, #000000 0%, #333333 100%);
+}
+
+* {
+    margin: 100;
+    padding: 100;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background: var(--primary-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(0, 0, 0, 0.449);
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 1px solid rgba(241, 247, 247, 0.933);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: cer;
+}
+
+.logo {
+    font-size: 30px;
+    font-weight: 60;
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 1px rgb(246, 246, 249);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: #ffffff;
+    animation: rotate 20s linear infinite;
+    opacity: 0.03;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    background: var(--gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 2px rgba(14, 39, 230, 0.722);
+}
+
+.hero p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: var(--gradient);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.cta-button:hover {
+    transform: translateY(-3px);
+    background: var(--hover-gradient);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+/* Features Section */
+.features {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #111111 0%, #000000 100%);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 15px;
+    padding: 30px;
+    transition: transform 0.3s ease, background 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 15px;
+    font-size: 24px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+}
+
+.feature-card p {
+    color: rgba(255, 255, 255, 0.7);
+    line-height: 1.6;
+}
+
+/* Download Section */
+.download-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.download-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background: var(--gradient);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease, background 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.download-button:hover {
+    transform: translateY(-2px);
+    background: var(--hover-gradient);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    .hero p {
+        text-align: center;
+    }
+
+    .feature-card {
+        text-align: center;
+    }
+
+    .nav-links {
+        display: none;
+    }
+}
+/* Contact Section */
+.contact {
+    padding: 60px 0 40px 0; /* pastki padding kamaytirildi */
+    margin-bottom: 0;
+}
+
+/* Footer */
+.footer {
+    padding: 0 0;
+    margin-top: 0;
+    background: #000000; /* ixtiyoriy: fonni ko‘rinadigan qilish uchun */
+    border-top: 1px solid rgba(65, 224, 17, 0.634); /* ajratib turadi */
+}
+
+/* Har qanday keraksiz bo‘sh joydan saqlanish */
+footer .container:last-child {
+    margin-bottom: 0;
+}
+
+.simple-trust-offer {
+    text-align: center;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #111111 0%, #000000 100%);
+    color: white;
+  }
+  
+  .simple-trust-offer h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #00c6fb;
+  }
+  
+  .simple-trust-offer p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .simple-trust-offer .cta-button {
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #005bea, #00c6fb);
+    color: white;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .simple-trust-offer .cta-button:hover {
+    background: linear-gradient(135deg, #004bbf, #00b2e3);
+    transform: translateY(-3px);
+  }
+  
+.telegram-button {
+    
+    
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #0088cc;
+    text-decoration: none;
+    font-weight: 800;
+    font-size: 16px;
+}
+.telegram-button:hover {
+    
+    text-decoration: underline;
+    color: #005577;
+}
+.telegram-icon {
+    
+    width: 48px;
+    height: 24px;
+    fill: currentColor;
+}
+.contact {
+    display: flex;
+    justify-content: center; /* vertikal yo‘nalishda markazlashtiradi */
+    align-items: center;     /* gorizontal yo‘nalishda markazlashtiradi */
+    min-height: 400px;       /* bo‘lim balandligi */
+    background: #000;        /* orqa fon ixtiyoriy */
+}
+
+.contact .container {
+    text-align: center;
+}
+.hero {
+    position: relative;
+    height: 100vh; /* to‘liq ekran balandligi */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding: 0 20px;
+    z-index: 1;
+  }
+  
+  .background-video {
+    position: absolute;
+    top: 60%;
+    left: 30%;
+    min-width: 65%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-20%, -50%);
+    z-index: -1;
+    object-fit: cover; /* video to‘liq qoplanishi uchun */
+    filter: brightness(0.5); /* video qorong‘iligi, matn uchun yaxshi kontrast */
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+  
+  .hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 9px 10px 0px rgba(3, 104, 245, 0.955);
+  }
+  
+  .hero-content p {
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 3px rgba(15, 195, 231, 0.9);
+  }
+  
+  .cta-button {
+    display: inline-block;
+    padding: 15px 40px;
+    background: rgba(6, 115, 231, 0.8);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .cta-button:hover {
+    background: rgba(0, 123, 255, 1);
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 1;
+  }
+  
